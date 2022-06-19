@@ -1,0 +1,26 @@
+﻿@page
+@model HotelApp.Web.Pages.TryPageModel
+@{
+    ViewData["Title"] = "Try Page";
+}
+
+<h1>Try page</h1>
+<p>here u can try whatever  u want</p>
+
+<form method="post">
+    <div class = "form-group">
+        @for(int i = 0; i < Model.Messages.Count; i++)
+        {
+            <input  asp-for="Messages[i]" />
+        }
+        <input asp-for="Message" type="text" placeholder="Type your message"/>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+
+<h2>These are the messages</h2>
+@foreach(var item in Model.Messages)
+{
+    <h3>@item</h3>
+}
